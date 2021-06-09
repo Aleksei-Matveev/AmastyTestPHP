@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-***Amasty Test PHP
-Задание 1
-=======
 # Amasty Test PHP
 ## Задание 1
->>>>>>> efc6f4ef06f9ab91988d664f801524ca808d797f
+
 
 #Нужно:
 -	Создать интерфейс IChessmen, который содержит методы move, getPosition.
