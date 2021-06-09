@@ -1,12 +1,14 @@
 <?php
-if (isset($_POST["coord"]) ) {
+require_once ('Queen.php');
+require_once ('King.php');
 
-    // Формируем массив для JSON ответа
-    $result = array(
-        'coord' => $_POST["coord"],
 
-    );
+if (isset($_GET) ) {
+    $queen = new Queen('a','1');
+    $king = new King('d', '3');
 
-    // Переводим массив в JSON
+    $result['chess'][] = ["name"=>'queen',"coord"=>$queen->getPosition()];
+    $result['chess'][] = ["name"=>'king',"coord"=>$king->getPosition()];
+
     echo json_encode($result);
 }

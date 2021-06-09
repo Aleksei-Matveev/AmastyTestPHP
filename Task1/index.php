@@ -1,13 +1,3 @@
-<?php
-require_once ('IChessmen.php');
-require_once ('AbstractChessmen.php');
-require_once ('King.php');
-require_once ("Queen.php");
-$queen = new Queen('a','1');
-$king = new King('d', '3');
-
-?>
-
 <!DOCTYPE html>
 <html lang="RU">
 <head>
@@ -17,7 +7,6 @@ $king = new King('d', '3');
     <script src="js/jquery.js"></script>
     <script src="js/main.js"></script>
    <body>
-
 <div class="box">
     <div class="centered">
         <table class="chess-board">
@@ -123,8 +112,6 @@ $king = new King('d', '3');
             </tr>
             </tbody>
         </table>
-
-
     </div>
     <div>
         <form method="post" id="form_request" action="">
@@ -134,7 +121,6 @@ $king = new King('d', '3');
         </form>
     </div>
 </div>
-
 </body>
 </html>
 

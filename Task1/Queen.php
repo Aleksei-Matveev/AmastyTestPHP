@@ -1,4 +1,6 @@
 <?php
+require_once ('AbstractChessmen.php');
+
 class Queen extends AbstractChessmen{
 
     /**

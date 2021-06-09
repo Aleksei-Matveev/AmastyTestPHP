@@ -1,43 +1,31 @@
-
 $( document ).ready(function() {
     $("#btn").click(
         function(){
-            sendAjaxForm('form_request', 'View.php');
+            $.ajax({
+                url:     "View.php",
+                type:     "GET",
+                dataType: "html",
+                data: $("#form_request").serialize(),
+                success: function(response) {
+                    let result = $.parseJSON(response);
+                    //console.log(result);
+
+                    for (const val in result) {
+                        console.log(val);
+                        let fileName = "./img/" + val.chess.name + ".png";
+                        if(item = document.getElementById(item.chess.coord))
+                            item.innerHTML = '<img src=' +  fileName + '>';
+                    }
+
+
+
+
+                },
+                error: function(response) {
+                    console.log("ОШИБКА " + response);
+                }
+            });
             return false;
         }
     );
 });
-
-function sendAjaxForm(form_request, url) {
-    $.ajax({
-        url:     url, //url страницы (action_ajax_form.php)
-        type:     "POST", //метод отправки
-        dataType: "html", //формат данных
-        data: $("#" + form_request).serialize(),  // Сеарилизуем объект
-        success: function(response) { //Данные отправлены успешно
-            result = $.parseJSON(response);
-            let item = document.getElementById(result.coord);
-            console.log(item);
-            item.innerHTML = '<img src="queen.png">';
-        },
-        error: function(response) { // Данные не отправлены
-           console.log("ОШИБКА");
-        }
-    });
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
