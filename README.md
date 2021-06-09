@@ -1,4 +1,4 @@
-****Amasty Test PHP
+# Amasty Test PHP
 Задание 1
 
 Нужно:
@@ -13,4 +13,4 @@
 ![king.png](king.png)
 ![queen.png](queen.png)
 
-(рис 1)                         (рис 2)
+(рис 1)->(рис 2)
