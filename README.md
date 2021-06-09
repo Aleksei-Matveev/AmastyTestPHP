@@ -1,4 +1,4 @@
-****Amasty Test PHP
+***Amasty Test PHP
 Задание 1
 
 Нужно:
