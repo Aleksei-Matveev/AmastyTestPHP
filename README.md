@@ -12,3 +12,5 @@
 
 ![king.png](king.png)
 ![queen.png](queen.png)
+
+(рис 1)                         (рис 2)
