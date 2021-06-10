@@ -114,19 +114,20 @@
         </table>
     </div>
     <div>
-        <form method="post" id="form_request">
+        <form method="post" id="form">
             <p>
-                <input type="radio" name="figure" id="king" value="king" checked>
+                <input type="radio" name="data[figure]" id="king" value="king" >
                 <label for="king">King</label>
-                <input type="radio" name="figure" id="queen" value="queen">
+                <input type="radio" name="data[figure]" id="queen" value="queen" checked>
                 <label for="queen">Queen</label>
             </p>
             <p>
                 <label for="coordinateFigure">Введите новые координаты фугуры </label>
-                <input class="input_coordinate" type="text" id="coordinateFigure" name="coordinate">
+                <input class="input_coordinate" type="text" id="coordinateFigure" name="data[coordinate]">
             </p>
             <input type="submit" id="btn" maxlength="5">
         </form>
+        <div id="result_form"></div>
     </div>
 </div>
 </body>

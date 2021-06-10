@@ -12,7 +12,7 @@ class Queen extends AbstractChessmen{
     function move($x, $y)
     {
         if($x <1 or $x > 8 or $y < 1 or $y > 8) throw new Exception('Координаты за пределами доски');
-        if(abs($this->x-$x) <= 1 and abs($this->y-$y) <= 1 or $this->x == $x or $this->y == $y) {
+        if(abs($this->x - $x) == abs($this->y - $y) or $this->x == $x or $this->y == $y) {
             $this->x = $x;
             $this->y = $y;
         }else

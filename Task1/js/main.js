@@ -3,10 +3,11 @@ $( document ).ready(function() {
         url:     "test.php",
         type:     "GET",
         success: function(response) {
+            //alert(response);
             showChess(response);
         },
         error: function(response) {
-            console.log("ОШИБКА " + response);
+            $('#result_form').html('Ошибка. Данные не отправлены.');
         }
     });
 
@@ -16,12 +17,11 @@ $( document ).ready(function() {
                 url:     "test.php",
                 type:     "POST",
                 dataType: "html",
-                data: $("#form_request"),
+                data: $("#form").serialize(),
                 success: function(response) {
-                     showChess(response);
                 },
                 error: function(response) {
-                    console.log("ОШИБКА " + response);
+                    $('#result_form').html('Ошибка. Данные не отправлены.');
                 }
             });
         }
