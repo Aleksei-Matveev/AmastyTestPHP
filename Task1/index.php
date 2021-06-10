@@ -24,100 +24,108 @@
             </tr>
             <tr>
                 <th>8</th>
-                <td class="white" id="a8"></td>
-                <td class="black" id="b8"></td>
-                <td class="white" id="c8"></td>
-                <td class="black" id="d8"></td>
-                <td class="white" id="e8"></td>
-                <td class="black" id="f8"></td>
-                <td class="white" id="g8"></td>
-                <td class="black" id="h8"></td>
+                <td class="white" id="18"></td>
+                <td class="black" id="28"></td>
+                <td class="white" id="38"></td>
+                <td class="black" id="48"></td>
+                <td class="white" id="58"></td>
+                <td class="black" id="68"></td>
+                <td class="white" id="78"></td>
+                <td class="black" id="88"></td>
             </tr>
             <tr>
                 <th>7</th>
-                <td class="black" id="a7"></td>
-                <td class="white" id="b7"></td>
-                <td class="black" id="c7"></td>
-                <td class="white" id="d7"></td>
-                <td class="black" id="e7"></td>
-                <td class="white" id="f7"></td>
-                <td class="black" id="g7"></td>
-                <td class="white" id="h7"></td>
+                <td class="black" id="17"></td>
+                <td class="white" id="27"></td>
+                <td class="black" id="37"></td>
+                <td class="white" id="47"></td>
+                <td class="black" id="57"></td>
+                <td class="white" id="67"></td>
+                <td class="black" id="77"></td>
+                <td class="white" id="87"></td>
             </tr>
             <tr>
                 <th>6</th>
-                <td class="white" id="a6"></td>
-                <td class="black" id="b6"></td>
-                <td class="white" id="c6"></td>
-                <td class="black" id="d6"></td>
-                <td class="white" id="e6"></td>
-                <td class="black" id="f6"></td>
-                <td class="white" id="g6"></td>
-                <td class="black" id="h6"></td>
+                <td class="white" id="16"></td>
+                <td class="black" id="26"></td>
+                <td class="white" id="36"></td>
+                <td class="black" id="46"></td>
+                <td class="white" id="56"></td>
+                <td class="black" id="66"></td>
+                <td class="white" id="76"></td>
+                <td class="black" id="86"></td>
             </tr>
             <tr>
                 <th>5</th>
-                <td class="black" id="a5"></td>
-                <td class="white" id="b5"></td>
-                <td class="black" id="c5"></td>
-                <td class="white" id="d5"></td>
-                <td class="black" id="e5"></td>
-                <td class="white" id="f5"></td>
-                <td class="black" id="g5"></td>
-                <td class="white" id="h5"></td>
+                <td class="black" id="15"></td>
+                <td class="white" id="25"></td>
+                <td class="black" id="35"></td>
+                <td class="white" id="45"></td>
+                <td class="black" id="55"></td>
+                <td class="white" id="65"></td>
+                <td class="black" id="75"></td>
+                <td class="white" id="85"></td>
             </tr>
             <tr>
                 <th>4</th>
-                <td class="white" id="a4"></td>
-                <td class="black" id="b4"></td>
-                <td class="white" id="c4"></td>
-                <td class="black" id="d4"></td>
-                <td class="white" id="e4"></td>
-                <td class="black" id="f4"></td>
-                <td class="white" id="g4"></td>
-                <td class="black" id="h4"></td>
+                <td class="white" id="14"></td>
+                <td class="black" id="24"></td>
+                <td class="white" id="34"></td>
+                <td class="black" id="44"></td>
+                <td class="white" id="54"></td>
+                <td class="black" id="64"></td>
+                <td class="white" id="74"></td>
+                <td class="black" id="84"></td>
             </tr>
             <tr>
                 <th>3</th>
-                <td class="black" id="a3"></td>
-                <td class="white" id="b3"></td>
-                <td class="black" id="c3"></td>
-                <td class="white" id="d3"></td>
-                <td class="black" id="e3"></td>
-                <td class="white" id="f3"></td>
-                <td class="black" id="g3"></td>
-                <td class="white" id="h3"></td>
+                <td class="black" id="13"></td>
+                <td class="white" id="23"></td>
+                <td class="black" id="33"></td>
+                <td class="white" id="43"></td>
+                <td class="black" id="53"></td>
+                <td class="white" id="63"></td>
+                <td class="black" id="73"></td>
+                <td class="white" id="83"></td>
             </tr>
             <tr>
                 <th>2</th>
-                <td class="white" id="a2"></td>
-                <td class="black" id="b2"></td>
-                <td class="white" id="c2"></td>
-                <td class="black" id="d2"></td>
-                <td class="white" id="e2"></td>
-                <td class="black" id="f2"></td>
-                <td class="white" id="g2"></td>
-                <td class="black" id="h2"></td>
+                <td class="white" id="12"></td>
+                <td class="black" id="22"></td>
+                <td class="white" id="32"></td>
+                <td class="black" id="42"></td>
+                <td class="white" id="52"></td>
+                <td class="black" id="62"></td>
+                <td class="white" id="72"></td>
+                <td class="black" id="82"></td>
             </tr>
             <tr>
                 <th>1</th>
-                <td class="black" id="a1"></td>
-                <td class="white" id="b1"></td>
-                <td class="black" id="c1"></td>
-                <td class="white" id="d1"></td>
-                <td class="black" id="e1"></td>
-                <td class="white" id="f1"></td>
-                <td class="black" id="g1"></td>
-                <td class="white" id="h1"></td>
+                <td class="black" id="11"></td>
+                <td class="white" id="21"></td>
+                <td class="black" id="31"></td>
+                <td class="white" id="41"></td>
+                <td class="black" id="51"></td>
+                <td class="white" id="61"></td>
+                <td class="black" id="71"></td>
+                <td class="white" id="81"></td>
             </tr>
             </tbody>
         </table>
     </div>
     <div>
-        <form method="post" id="form_request" action="">
-            <label>Введите Координаты фигуры и через пробел новые координаты </label>
-            <input type="text" name="coord">
-            <input type="submit" id="btn">
+        <form method="post" id="form_request">
+            <p>
+                <input type="radio" name="figure" id="king" value="king" checked>
+                <label for="king">King</label>
+                <input type="radio" name="figure" id="queen" value="queen">
+                <label for="queen">Queen</label>
+            </p>
+            <p>
+                <label for="coordinateFigure">Введите новые координаты фугуры </label>
+                <input class="input_coordinate" type="text" id="coordinateFigure" name="coordinate">
+            </p>
+            <input type="submit" id="btn" maxlength="5">
         </form>
     </div>
 </div>

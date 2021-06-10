@@ -1,5 +1,5 @@
 <?php
 interface IChessmen{
-    function move($x, $y);
+    function move(string $x, string $y);
     function getPosition();
 }

@@ -1,31 +1,42 @@
 $( document ).ready(function() {
+    $.ajax({
+        url:     "test.php",
+        type:     "GET",
+        success: function(response) {
+            showChess(response);
+        },
+        error: function(response) {
+            console.log("ОШИБКА " + response);
+        }
+    });
+
     $("#btn").click(
         function(){
             $.ajax({
-                url:     "View.php",
-                type:     "GET",
+                url:     "test.php",
+                type:     "POST",
                 dataType: "html",
-                data: $("#form_request").serialize(),
+                data: $("#form_request"),
                 success: function(response) {
-                    let result = $.parseJSON(response);
-                    //console.log(result);
-
-                    for (const val in result) {
-                        console.log(val);
-                        let fileName = "./img/" + val.chess.name + ".png";
-                        if(item = document.getElementById(item.chess.coord))
-                            item.innerHTML = '<img src=' +  fileName + '>';
-                    }
-
-
-
-
+                     showChess(response);
                 },
                 error: function(response) {
                     console.log("ОШИБКА " + response);
                 }
             });
-            return false;
         }
     );
 });
+
+function showChess(response){
+
+    let result = $.parseJSON(response);
+
+    result.forEach(
+        function (val){
+            let fileName = "./img/" + val.figure + ".png";
+            if(item = document.getElementById(val.coord))
+                item.innerHTML = '<img alt="' + val.figure + '" src=' +  fileName + '>';
+        }
+    )
+}

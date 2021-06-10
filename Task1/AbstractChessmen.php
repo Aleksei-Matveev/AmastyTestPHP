@@ -5,16 +5,15 @@ abstract class AbstractChessmen implements IChessmen
     /**
      * @var string
      */
-    private $x;
+    protected $x;
     /**
      * @var string
      */
-    private $y;
+    protected $y;
 
-    public function getPosition():string
+    public function getPosition(): array
     {
-
-        return $this->x . $this->y;
+        return [$this->x, $this->y];
     }
     public function __construct(string $x, string $y)
     {
