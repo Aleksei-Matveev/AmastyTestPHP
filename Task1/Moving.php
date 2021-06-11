@@ -4,64 +4,48 @@ require_once ('King.php');
 
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] === "GET"){
+if ($_SERVER['REQUEST_METHOD'] === "GET") {
 
-    if(isset($_SESSION)){
-        if(isset($_SESSION['queen']))
-            $queen = $_SESSION['queen'];
-        else {
-            $queen = new Queen('1', '1');
-            $_SESSION['queen'] = $queen;
-        }
+    if (isset($_SESSION['queen']))
+        $queen = $_SESSION['queen'];
+    else {
+        $queen = new Queen('1', '1');
+        $_SESSION['queen'] = $queen;
     }
-    if(isset($_SESSION['king']))
-        $king   = $_SESSION['king'];
+
+    if (isset($_SESSION['king']))
+        $king = $_SESSION['king'];
     else {
         $king = new King('4', '3');
         $_SESSION['king'] = $king;
     }
-
-    $board= [
-        ['figure' => 'queen', 'coord' => convertCoordinateForChessBoard($queen)],
-        ['figure' => 'king', 'coord' => convertCoordinateForChessBoard($king)]
-    ];
-
-    echo json_encode($board);
 }
 
 if ($_SERVER['REQUEST_METHOD'] === "POST"){
-
-    //die( print_r($_POST));
-
 
     $king = $_SESSION['king'];
     $queen = $_SESSION['queen'];
 
     if($data = $_POST['data']){
+        try {
+            switch ($data['figure']){
+                case 'king':
+                    $coord = convertCoordinateFromChessBoard($data['coordinate']);
+                    $king->move($coord['x'], $coord['y']);
+                    $_SESSION['king'] = $king;
+                    break;
+                case 'queen':
+                    $coord = convertCoordinateFromChessBoard($data['coordinate']);
+                    $queen->move($coord['x'], $coord['y']);
+                    $_SESSION['queen'] = $queen;
+                    break;
+            }
 
-        switch ($data['figure']){
-            case 'king':
-                $coord = convertCoordinateFromChessBoard($data['coordinate']);
-                $king->move($coord['x'], $coord['y']);
-                $_SESSION['king'] = $king;
-                break;
-            case 'queen':
-
-                $coord = convertCoordinateFromChessBoard($data['coordinate']);
-                $queen->move($coord['x'], $coord['y']);
-                $_SESSION['queen'] = $queen;
-                break;
+        }catch (Exception $ex){
+            $response = ['error'=>$ex->getMessage()];
         }
     }
-
-    $board= [
-        ['figure' => 'queen', 'coord' => convertCoordinateForChessBoard($queen)],
-        ['figure' => 'king', 'coord' => convertCoordinateForChessBoard($king)]
-    ];
-
-    echo json_encode($board);
 }
-
 
 function convertCoordinateForChessBoard(AbstractChessmen $figure):string{
     return implode('',$figure->getPosition());
@@ -72,6 +56,13 @@ function convertCoordinateFromChessBoard(string $coordinate):array{
     $arr['y'] = $coordinate[1];
     return $arr;
 }
+
+$response = [
+    ['figure' => 'queen', 'coord' => convertCoordinateForChessBoard($queen)],
+    ['figure' => 'king', 'coord' => convertCoordinateForChessBoard($king)]
+];
+
+echo json_encode($response, JSON_UNESCAPED_UNICODE);
 
 
 

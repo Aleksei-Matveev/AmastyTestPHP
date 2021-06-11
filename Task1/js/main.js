@@ -1,37 +1,25 @@
 $( document ).ready(function() {
-    $.ajax({
-        url:     "test.php",
-        type:     "GET",
-        success: function(response) {
-            //alert(response);
-            showChess(response);
-        },
-        error: function(response) {
-            $('#result_form').html('Ошибка. Данные не отправлены.');
-        }
-    });
+
+    sendAjaxForm(
+        "Moving.php",
+        "GET",
+        '',
+        '');
 
     $("#btn").click(
         function(){
-            $.ajax({
-                url:     "test.php",
-                type:     "POST",
-                dataType: "html",
-                data: $("#form").serialize(),
-                success: function(response) {
-                },
-                error: function(response) {
-                    $('#result_form').html('Ошибка. Данные не отправлены.');
-                }
-            });
-        }
-    );
+            sendAjaxForm(
+                "Moving.php",
+                "POST",
+                "html",
+                $("#form").serialize());
+        });
 });
 
 function showChess(response){
 
     let result = $.parseJSON(response);
-
+    console.log(result);
     result.forEach(
         function (val){
             let fileName = "./img/" + val.figure + ".png";
@@ -39,4 +27,19 @@ function showChess(response){
                 item.innerHTML = '<img alt="' + val.figure + '" src=' +  fileName + '>';
         }
     )
+}
+
+function sendAjaxForm(url, type, datatype, data){
+    $.ajax({
+        url:        url,
+        type:       type,
+        dataType:   datatype,
+        data:       data,
+        success: function(response) {
+            showChess(response);
+        },
+        error: function(response) {
+            $('#result_form').html('Ошибка. Данные не отправлены.' +response);
+        }
+    });
 }
