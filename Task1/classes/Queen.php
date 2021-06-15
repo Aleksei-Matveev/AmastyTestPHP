@@ -1,5 +1,5 @@
 <?php
-require_once ('AbstractChessmen.php');
+require_once('AbstractChessmen.php');
 
 class Queen extends AbstractChessmen{
 
@@ -11,7 +11,8 @@ class Queen extends AbstractChessmen{
      */
     function move($x, $y)
     {
-        if($x <1 or $x > 8 or $y < 1 or $y > 8) throw new Exception('Координаты за пределами доски');
+        if($x < 1 or $x > 8 or $y < 1 or $y > 8) throw new Exception('Координаты за пределами доски');
+
         if(abs($this->x - $x) == abs($this->y - $y) or $this->x == $x or $this->y == $y) {
             $this->x = $x;
             $this->y = $y;

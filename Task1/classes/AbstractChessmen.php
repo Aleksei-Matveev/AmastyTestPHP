@@ -1,5 +1,5 @@
 <?php
-require_once ('IChessmen.php');
+require_once('IChessmen.php');
 abstract class AbstractChessmen implements IChessmen
 {
     /**

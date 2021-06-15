@@ -1,8 +1,10 @@
 <?php
-require_once ('Queen.php');
-require_once ('King.php');
+require_once('classes/Queen.php');
+require_once('classes/King.php');
 
 session_start();
+
+$response= [];
 
 if ($_SERVER['REQUEST_METHOD'] === "GET") {
 
@@ -19,14 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
         $king = new King('4', '3');
         $_SESSION['king'] = $king;
     }
-}
 
-if ($_SERVER['REQUEST_METHOD'] === "POST"){
-
-    $king = $_SESSION['king'];
-    $queen = $_SESSION['queen'];
-
-    if($data = $_POST['data']){
+    if($data = $_GET['data']){
         try {
             switch ($data['figure']){
                 case 'king':
@@ -40,29 +36,24 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
                     $_SESSION['queen'] = $queen;
                     break;
             }
-
-        }catch (Exception $ex){
-            $response = ['error'=>$ex->getMessage()];
+        } catch (Exception $e) {
+            $response[] = ['status'=>0, 'error'=> $e->getMessage()];
         }
     }
+
+    $response[] = ['figure' => 'queen', 'coord' => convertCoordinateForChessBoard($queen)];
+    $response[] = ['figure' => 'king', 'coord' => convertCoordinateForChessBoard($king)];
+
+    echo json_encode($response, JSON_UNESCAPED_UNICODE);
 }
 
 function convertCoordinateForChessBoard(AbstractChessmen $figure):string{
     return implode('',$figure->getPosition());
 }
+
 function convertCoordinateFromChessBoard(string $coordinate):array{
     $q = ['a'=>1,'b'=>2,'c'=>3, 'd'=>4,'e'=>5,'f'=>6,'g'=>7,'h'=>8];
     $arr['x'] = $q[$coordinate[0]];
     $arr['y'] = $coordinate[1];
     return $arr;
 }
-
-$response = [
-    ['figure' => 'queen', 'coord' => convertCoordinateForChessBoard($queen)],
-    ['figure' => 'king', 'coord' => convertCoordinateForChessBoard($king)]
-];
-
-echo json_encode($response, JSON_UNESCAPED_UNICODE);
-
-
-

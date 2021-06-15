@@ -1,5 +1,5 @@
 <?php
-require_once ('AbstractChessmen.php');
+require_once('AbstractChessmen.php');
 class King extends AbstractChessmen{
 
     /**
@@ -17,7 +17,5 @@ class King extends AbstractChessmen{
             $this->y = $y;
         }else
             throw new Exception('Король так не может ходить');
-
-
     }
 }

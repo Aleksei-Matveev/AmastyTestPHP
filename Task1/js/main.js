@@ -1,45 +1,45 @@
-$( document ).ready(function() {
+const requestUrl = 'Moving.php';
 
-    sendAjaxForm(
-        "Moving.php",
-        "GET",
-        '',
-        '');
+let lastBoard;
 
-    $("#btn").click(
-        function(){
-            sendAjaxForm(
-                "Moving.php",
-                "POST",
-                "html",
-                $("#form").serialize());
-        });
-});
+sendRequest('GET', requestUrl).then(response=>initializeChessBoard(response))
 
-function showChess(response){
+function initializeChessBoard(board) {
 
-    let result = $.parseJSON(response);
-    console.log(result);
-    result.forEach(
-        function (val){
-            let fileName = "./img/" + val.figure + ".png";
-            if(item = document.getElementById(val.coord))
-                item.innerHTML = '<img alt="' + val.figure + '" src=' +  fileName + '>';
-        }
-    )
+    lastBoard = board;
+    updateBoard(board);
+
+    let btn = document.querySelector('#btn');
+    btn.onclick = getMove;
+
+    function getMove(e) {
+        e.preventDefault();
+       sendRequest('GET', requestUrl, $("#form").serialize()).then(response=>updateBoard(response))
+    }
 }
 
-function sendAjaxForm(url, type, datatype, data){
-    $.ajax({
-        url:        url,
-        type:       type,
-        dataType:   datatype,
-        data:       data,
-        success: function(response) {
-            showChess(response);
-        },
-        error: function(response) {
-            $('#result_form').html('Ошибка. Данные не отправлены.' +response);
-        }
+function updateBoard(board){
+
+    lastBoard.forEach(function (val){
+        if(item = document.getElementById(val.coord))
+            item.innerHTML=''
     });
+
+    lastBoard = board;
+console.log(board)
+    board.forEach(
+        function (val) {
+            console.log(val)
+            let fileName = "./img/" + val.figure + ".png";
+            if (item = document.getElementById(val.coord))
+                item.innerHTML = '<img alt="' + val.figure + '" src=' + fileName + '>';
+        });
+}
+
+function sendRequest(method, url, params) {
+    return fetch(url + '?' + params,{
+        method:method
+    }).then(response=>{
+        return response.json();
+    })
 }

@@ -114,7 +114,7 @@
         </table>
     </div>
     <div>
-        <form method="post" id="form">
+        <form method="get" id="form">
             <p>
                 <input type="radio" name="data[figure]" id="king" value="king" >
                 <label for="king">King</label>
