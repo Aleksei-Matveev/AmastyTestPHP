@@ -23,16 +23,23 @@ function updateBoard(board){
     lastBoard.forEach(function (val){
         if(item = document.getElementById(val.coord))
             item.innerHTML=''
+        document.getElementById('result_form').innerHTML = ''
     });
 
     lastBoard = board;
-console.log(board)
+
     board.forEach(
         function (val) {
-            console.log(val)
+
+            if (val.status == 0) {
+                console.log(val.error)
+               let res = document.getElementById('result_form')
+                res.innerHTML = '<p>' + val.error + '</p>';
+            }
             let fileName = "./img/" + val.figure + ".png";
             if (item = document.getElementById(val.coord))
                 item.innerHTML = '<img alt="' + val.figure + '" src=' + fileName + '>';
+
         });
 }
 
