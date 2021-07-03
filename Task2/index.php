@@ -1,7 +1,8 @@
 <?php
-function getTestStroop (): array
+function getTestStroop ()
 {
-    static $result = array();
+
+    $result = array();
     $colors = ['red', 'blue', 'yellow', 'magenta', 'green', 'gray', 'pink', 'orange', 'brown', 'violet'];
 
     $countColors = count($colors)-1;
@@ -14,9 +15,7 @@ function getTestStroop (): array
 
     array_push($result, $item);
     if(count($result) < 5) getTestStroop();
-    $s = $result;
-    $result = [];
-    return $s;
+    yield $result;
 }
 ?>
 

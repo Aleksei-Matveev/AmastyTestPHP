@@ -1,4 +1,5 @@
 <?php
+//error_reporting(0);
 require_once('classes/Queen.php');
 require_once('classes/King.php');
 
@@ -8,8 +9,9 @@ $response= [];
 
 if ($_SERVER['REQUEST_METHOD'] === "GET") {
 
-    if (isset($_SESSION['queen']))
+    if (isset($_SESSION['queen'])) {
         $queen = $_SESSION['queen'];
+    }
     else {
         $queen = new Queen('1', '1');
         $_SESSION['queen'] = $queen;
@@ -22,7 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
         $_SESSION['king'] = $king;
     }
 
-    if($data = $_GET['data']){
+    if(isset($_GET['data'])){
+        $data = $_GET['data'];
         try {
             switch ($data['figure']){
                 case 'king':
