@@ -30,12 +30,11 @@ function updateBoard(board){
 
     board.forEach(
         function (val) {
-
             if (val.status == 0) {
-                console.log(val.error)
                let res = document.getElementById('result_form')
                 res.innerHTML = '<p>' + val.error + '</p>';
             }
+
             let fileName = "./img/" + val.figure + ".png";
             if (item = document.getElementById(val.coord))
                 item.innerHTML = '<img alt="' + val.figure + '" src=' + fileName + '>';
